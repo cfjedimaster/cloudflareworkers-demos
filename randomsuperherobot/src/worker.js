@@ -20,7 +20,7 @@ async function uploadMedia(url, key) {
 }
 
 export default {
-	async fetch(request, env, ctx) {
+	async scheduled(event, env, ctx) {
 
 		const KEY = env.MASTODON_KEY;
 
@@ -36,7 +36,6 @@ export default {
 Your random Marvel superhero of the moment is: ${hero.name}.
 More information here: ${hero.urls[0].url}
 		`;
-
 		
 		let image = `${hero.thumbnail.path}.${hero.thumbnail.extension}`;
 		let mediaOb = await uploadMedia(image, KEY);
