@@ -1,0 +1,7 @@
+name = "frontworker"
+main = "src/worker.js"
+compatibility_date = "2023-08-07"
+
+services = [
+  { binding = "backlogic", service = "backworker" }
+]
