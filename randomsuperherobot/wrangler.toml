@@ -1,0 +1,7 @@
+name = "randomsuperherobot"
+main = "src/worker.js"
+compatibility_date = "2023-08-07"
+
+services = [
+  { binding = "randomsuperhero", service = "randomsuperhero" }
+]
