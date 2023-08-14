@@ -24,7 +24,7 @@ export default {
 
 		const KEY = env.MASTODON_KEY;
 
-		let heroRequest = await env.randomsuperhero.fetch(request.clone());
+		let heroRequest = await env.randomsuperhero.fetch(new Request('http://127.0.0.1'));
 		let hero = await heroRequest.json();
 		console.log(`Got hero: ${hero.name}`);
 

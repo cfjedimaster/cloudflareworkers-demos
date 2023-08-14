@@ -7,4 +7,4 @@ services = [
 ]
 
 [triggers]
-crons = ["0 */4 * * *"] 
+crons = ["0 */2 * * *"] 
