@@ -54,11 +54,5 @@ More information here: ${hero.urls[0].url}
 		let result = await resp.json();
 		// Not using result for now...
 
-		return new Response(JSON.stringify('Ok!'), {
-			headers: {
-				'Content-Type':'application/json;charset=UTF-8'
-			}
-		});
-
 	},
 };
