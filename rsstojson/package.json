@@ -1,0 +1,15 @@
+{
+  "name": "rsstojson",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "start": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.2.7"
+  }
+}
