@@ -77,7 +77,6 @@ export default {
 	async fetch(request, env, ctx) {
 		const PRIVATE_KEY = env.MARVEL_PRIVATE_KEY;
 		const PUBLIC_KEY = env.MARVEL_PUBLIC_KEY;
-		console.log(PRIVATE_KEY, PUBLIC_KEY);
 		let cover = await getCover(PUBLIC_KEY, PRIVATE_KEY);
 
 		return new Response(JSON.stringify(cover), {
