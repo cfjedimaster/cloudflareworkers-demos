@@ -2,6 +2,9 @@ name = "translate"
 main = "src/index.js"
 compatibility_date = "2023-10-16"
 
+[ai]
+binding = "AI" #available in your worker via env.AI
+
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
 # Docs: https://developers.cloudflare.com/workers/platform/environment-variables
