@@ -7,6 +7,7 @@ const parser = new XMLParser(options);
 
 const ALLOW_LIST = [
 	'https://www.raymondcamden.com/feed_slim.xml',
+	'https://www.raymondcamden.com/feed.xml',
 	'https://recursive.codes/blog/feed',
 	'https://scottstroz.com/feed.xml'
 ]
@@ -28,6 +29,8 @@ export default {
 			});
 		}
 
+		/*
+		Removed 9/11/2024
 		if(ALLOW_LIST.indexOf(feedURL) === -1) {
 			return new Response(JSON.stringify({
 				error:'feed not allowed'
@@ -38,6 +41,7 @@ export default {
 				}
 			});
 		}
+		*/
 
 		let req = await fetch(feedURL);
 		let xmlData = await req.text();
