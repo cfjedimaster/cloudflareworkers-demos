@@ -76,8 +76,15 @@ async function geocode(address,key) {
 }
 
 export default {
+
+	async fetch(request, env, ctx) {
+		let d = await getIncidents();
+		return new Response(JSON.stringify(d));
+	},
+
 	async scheduled(event, env, ctx) {
 		console.log('entered scheduled execution');
+
 		let incidents = await getIncidents();
 		if(incidents.length === 0) return;
 		console.log(`Going to process ${incidents.length} incidents`);
@@ -99,6 +106,6 @@ export default {
 				).run();
 			} else console.log('Skipping existing incident');
 		}
-		return new Response('Hello World!');
+
 	},
 };
