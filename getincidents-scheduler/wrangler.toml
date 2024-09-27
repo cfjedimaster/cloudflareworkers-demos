@@ -1,21 +1,23 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "getincidents"
+name = "getincidents-scheduler"
 main = "src/index.js"
-compatibility_date = "2024-09-23"
+compatibility_date = "2024-09-25"
 compatibility_flags = ["nodejs_compat"]
 
 [triggers]
-#crons = ["*/3 * * * *"]
+#crons = ["*/10 * * * *"]
 crons = ["*/30 * * * *"]
 
-[[d1_databases]]
-binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "incidents"
-database_id = "44b216e2-f474-4677-a77c-7932915b71a8"
+[[services]]
+binding = "getincidents"
+service = "getincidents_hack"
 
-[[kv_namespaces]]
-binding = "geocache"
-id = "169eaa4ed43349cebbcf297fe560af4b"
+
+# Workers Logs
+# Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+# Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
+[observability]
+enabled = true
 
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Worker, running it closer to your back-end infrastructure
@@ -32,7 +34,7 @@ id = "169eaa4ed43349cebbcf297fe560af4b"
 # [vars]
 # MY_VARIABLE = "production_value"
 
-# Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare's global network
+# Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#workers-ai
 # [ai]
 # binding = "AI"

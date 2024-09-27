@@ -15,12 +15,8 @@ async function getIncidents() {
 				'Content-Type':'application/json'
 			}
 			});
-	console.log('req made to laf911 A');
-	let test = await resp.text();
-	console.log('get text');
-	console.log(test);
-	let data = JSON.parse(test);
-	//let data = await resp.json();
+
+	let data = await resp.json();
 	console.log('got data');
 	return JSON.parse(data['d']).incidents;
 
@@ -85,15 +81,7 @@ export default {
 
 	async fetch(request, env, ctx) {
 		console.log('my fetch called');
-		let d = await getIncidents();
-		return new Response(JSON.stringify(d));
-	},
-
-	async scheduled(event, env, ctx) {
-		console.log('entered scheduled execution');
-
 		let incidents = await getIncidents();
-
 
 		if(incidents.length === 0) return;
 		console.log(`Going to process ${incidents.length} incidents`);
@@ -116,5 +104,8 @@ export default {
 			} else console.log('Skipping existing incident');
 		}
 
+		return new Response('Done');
+
 	},
+
 };
